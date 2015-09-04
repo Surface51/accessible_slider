@@ -50,13 +50,28 @@ button, input, optgroup, select, textarea {
   display: table-cell;
 }
 
-.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+.radio input[type="radio"], 
+.radio-inline input[type="radio"], 
+.checkbox input[type="checkbox"], 
+.checkbox-inline input[type="checkbox"] {
   position: relative;
   margin: 0;
+}
+
+a.carousel-control:focus,
+a.carousel-control.left,
+a.carousel-control.right {
+  background: none;
+
 }
 
 .carousel-indicators {
   margin:0 0 0 -30% !important;
   padding:0px !important;
   bottom:.5em;
+  li, li.active {
+    box-shadow: none;
+    height:12px;
+    width:12px;
+  }
 }
