@@ -14,14 +14,14 @@ function accessible_slider_example_views_default_views() {
 	$view->description = '';
 	$view->tag = 'default';
 	$view->base_table = 'node';
-	$view->human_name = 'Accessible Slider Block';
+	$view->human_name = 'Accessible Slider Example View';
 	$view->core = 7;
 	$view->api_version = '3.0';
 	$view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
 
 	/* Display: Master */
 	$handler = $view->new_display('default', 'Master', 'default');
-	$handler->display->display_options['title'] = 'Accessible Slider Block';
+	$handler->display->display_options['title'] = 'as Slider Block';
 	$handler->display->display_options['use_more_always'] = FALSE;
 	$handler->display->display_options['access']['type'] = 'perm';
 	$handler->display->display_options['cache']['type'] = 'none';
@@ -66,22 +66,22 @@ function accessible_slider_example_views_default_views() {
 	$handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
 	$handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
 	/* Field: Content: Slide Caption */
-	$handler->display->display_options['fields']['s51_slide_caption']['id'] = 'as_slide_caption';
-	$handler->display->display_options['fields']['s51_slide_caption']['table'] = 'field_data_as_slide_caption';
-	$handler->display->display_options['fields']['s51_slide_caption']['field'] = 'as_slide_caption';
-	$handler->display->display_options['fields']['s51_slide_caption']['label'] = '';
-	$handler->display->display_options['fields']['s51_slide_caption']['exclude'] = TRUE;
-	$handler->display->display_options['fields']['s51_slide_caption']['element_label_colon'] = FALSE;
+	$handler->display->display_options['fields']['as_slide_caption']['id'] = 'as_slide_caption';
+	$handler->display->display_options['fields']['as_slide_caption']['table'] = 'field_data_as_slide_caption';
+	$handler->display->display_options['fields']['as_slide_caption']['field'] = 'as_slide_caption';
+	$handler->display->display_options['fields']['as_slide_caption']['label'] = '';
+	$handler->display->display_options['fields']['as_slide_caption']['exclude'] = TRUE;
+	$handler->display->display_options['fields']['as_slide_caption']['element_label_colon'] = FALSE;
 	/* Field: Content: Background Image */
-	$handler->display->display_options['fields']['s51_slide_image']['id'] = 'as_slide_image';
-	$handler->display->display_options['fields']['s51_slide_image']['table'] = 'field_data_as_slide_image';
-	$handler->display->display_options['fields']['s51_slide_image']['field'] = 'as_slide_image';
-	$handler->display->display_options['fields']['s51_slide_image']['label'] = '';
-	$handler->display->display_options['fields']['s51_slide_image']['exclude'] = TRUE;
-	$handler->display->display_options['fields']['s51_slide_image']['element_label_colon'] = FALSE;
-	$handler->display->display_options['fields']['s51_slide_image']['click_sort_column'] = 'fid';
-	$handler->display->display_options['fields']['s51_slide_image']['settings'] = array(
-	  'image_style' => 's51_slider_style',
+	$handler->display->display_options['fields']['as_slide_image']['id'] = 'as_slide_image';
+	$handler->display->display_options['fields']['as_slide_image']['table'] = 'field_data_as_slide_image';
+	$handler->display->display_options['fields']['as_slide_image']['field'] = 'as_slide_image';
+	$handler->display->display_options['fields']['as_slide_image']['label'] = '';
+	$handler->display->display_options['fields']['as_slide_image']['exclude'] = TRUE;
+	$handler->display->display_options['fields']['as_slide_image']['element_label_colon'] = FALSE;
+	$handler->display->display_options['fields']['as_slide_image']['click_sort_column'] = 'fid';
+	$handler->display->display_options['fields']['as_slide_image']['settings'] = array(
+	  'image_style' => 'as_slider_style',
 	  'image_link' => '',
 	);
 	/* Field: Global: Custom text */
@@ -91,8 +91,8 @@ function accessible_slider_example_views_default_views() {
 	$handler->display->display_options['fields']['nothing']['label'] = '';
 	$handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="slide">
 	<div class="slide-content">
-	<div class="slide-image">[s51_slide_image]</div>
-	<div class="slide-text">[s51_slide_caption]</div>
+	<div class="slide-image">[as_slide_image]</div>
+	<div class="slide-text">[as_slide_caption]</div>
 	</div>
 	</div>';
 	$handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
