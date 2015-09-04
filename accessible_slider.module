@@ -30,5 +30,27 @@ function _accessible_slider_block_content() {
 }
 
 function accessible_slider_js_alter(&$javascript) {
-	//$javascript['misc/jquery.js']['data'] = drupal_get_path('module', 'accessible_slider') . '/js/jquery.1.10-min.js';
+	if (path_is_admin(current_path())) {
+
+	} else {
+
+  		$javascript['misc/bootstrap.min.js'] = drupal_js_defaults(drupal_get_path('module', 'accessible_slider') . '/js/bootstrap.min.js');
+  		$javascript['misc/bootstrap.min.js']['weight'] = 0;
+  		$javascript['misc/bootstrap-accessibility.js'] = drupal_js_defaults(drupal_get_path('module', 'accessible_slider') . '/js/bootstrap-accessibility.js');
+  		$javascript['misc/bootstrap-accessibility.js']['weight'] = 1;
+
+		$javascript['misc/jquery.js']['data'] = drupal_get_path('module', 'accessible_slider') . '/js/jquery.1.10-min.js';
+		dsm($javascript);
+	}
+}
+
+/**
+* Implements hook_entity_info_alter().
+*/
+function accessible_slider_entity_info_alter(&$entity_info) {
+
+  $entity_info['node']['view modes']['another_teaser'] = array(
+    'label' => t('Another teaser'),
+    'custom settings' => TRUE,
+  );
 }

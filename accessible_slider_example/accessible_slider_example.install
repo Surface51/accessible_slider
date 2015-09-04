@@ -34,6 +34,14 @@ function accessible_slider_example_install() {
 		),
 	);
 
+	$fields['as_slide_link'] = array(
+		'field_name' => 'as_slide_link',
+		'type' => 'text',
+		'settings' => array(
+		'max_length' => 255,
+		),
+	);
+
 	$fields['as_slide_image'] = array(
 	    'active' => 1,
 	    'cardinality' => 1,
@@ -74,6 +82,17 @@ function accessible_slider_example_install() {
 		'field_name' => 'as_slide_caption',
 		'label' => $t('Slide Caption'),
 		'description' => $t('The slide caption. (255 Character Limit)'),
+		'widget' => array(
+			'type' => 'text_textfield',
+		),
+		'required' => FALSE,
+		'bundle' => 'as_slide'
+	);
+
+	$instances['as_slide_link'] = array(
+		'field_name' => 'as_slide_link',
+		'label' => $t('Slide Link'),
+		'description' => $t('The slide URL'),
 		'widget' => array(
 			'type' => 'text_textfield',
 		),
@@ -138,31 +157,36 @@ function accessible_slider_example_install() {
 	$slider[0] = array(
 		'title' => "Example Carousel Slide 1",
 		'caption' => "Rick Steves&#8217; Dynamic Europe: Amsterdam, Prague, Berlin",
-		'image' => "amsterdamslide__800x600.jpg"
+		'image' => "amsterdamslide__800x600.jpg",
+		'link' => "/highlights/story/rick-steves-dynamic-europe-amsterdam-prague-berlin"
 	);
 
 	$slider[1] = array(
 		'title' => "Example Carousel Slide 1",
 		'caption' => "Travel with WILL to Southwest England and Paris",
-		'image' => "trustslide-2__800x600.jpg"
+		'image' => "trustslide-2__800x600.jpg",
+		'link' => "http://will.illinois.edu/willtravel/tour/sept.-14-24-or-27-2015-southwest-england-paris-masterpieces-mysteries"
 	);
 
 	$slider[2] = array(
 		'title' => "Example Carousel Slide 3",
 		'caption' => "Survey confirms that PBS and member stations are America&#8217;s most trusted institution",
-		'image' => "foyleswarslide__800x600.jpg"
+		'image' => "foyleswarslide__800x600.jpg",
+		'link' => "http://www.pbs.org/about/news/archive/2015/pbs-most-trusted/"
 	);
 
 	$slider[3] = array(
 		'title' => "Example Carousel Slide 4",
 		'caption' => "Great BritCom Vote: 7 pm Sat., March 7, on WILL-TV",
-		'image' => "britcomdavidslide__800x600.jpg"
+		'image' => "britcomdavidslide__800x600.jpg",
+		'link' => "http://www.will.illinois.edu/highlights/story/foyles-war-revisited"
 	);
 
 	$slider[4] = array(
 		'title' => "Example Carousel Slide 5",
 		'caption' => "Mid-American Gardener: Thursdays at 7 pm on WILL-TV",
-		'image' => "mag800-2__800x600.jpg"
+		'image' => "mag800-2__800x600.jpg",
+		'link' => "http://www.will.illinois.edu/midamericangardener"
 	);
 
 	foreach ($slider as $slide) {
@@ -174,6 +198,7 @@ function accessible_slider_example_install() {
 
 		// Let's add standard body field
 		$node->as_slide_caption[$node->language][0]['value'] = $slide['caption'];
+		$node->as_slide_link[$node->language][0]['value'] = $slide['link'];
 
 		$image_url = drupal_get_path("module", "accessible_slider").'/images/placeholder/'.$slide['image'];;
 

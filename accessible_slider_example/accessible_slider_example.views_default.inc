@@ -5,16 +5,17 @@
  */
 
 
+
 /**
  * Implements hook_views_default_views().
  */
 function accessible_slider_example_views_default_views() {
-	$view = new view();
+$view = new view();
 	$view->name = 'as_slider_block';
 	$view->description = '';
 	$view->tag = 'default';
 	$view->base_table = 'node';
-	$view->human_name = 'Accessible Slider Example View';
+	$view->human_name = 'as Slider Block';
 	$view->core = 7;
 	$view->api_version = '3.0';
 	$view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -36,24 +37,29 @@ function accessible_slider_example_views_default_views() {
 	$handler->display->display_options['header']['area']['table'] = 'views';
 	$handler->display->display_options['header']['area']['field'] = 'area';
 	$handler->display->display_options['header']['area']['label'] = 'Arrows';
-	$handler->display->display_options['header']['area']['content'] = '<div class="slider-arrows">
-	   <div class="arrow-left"><a href="#"><span>Left</span></a></div>
-	   <div class="arrow-right"><a href="#"><span>Right</span></a></div>
-	</div>';
+	$handler->display->display_options['header']['area']['content'] = '<ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+      <li data-target="#myCarousel" data-slide-to="4"></li>
+      <li data-target="#myCarousel" data-slide-to="5"></li>
+ </ol>';
 	$handler->display->display_options['header']['area']['format'] = 'full_html';
 	/* Footer: Global: Text area */
 	$handler->display->display_options['footer']['area']['id'] = 'area';
 	$handler->display->display_options['footer']['area']['table'] = 'views';
 	$handler->display->display_options['footer']['area']['field'] = 'area';
 	$handler->display->display_options['footer']['area']['label'] = 'Pager';
-	$handler->display->display_options['footer']['area']['content'] = '<div class="slider-controls">
-	<ul id="pauser">
-		<li><a href="#"" class="play"><span>Pause</span></a></li>
-	</ul>
-	<ul id="pager">
-		<li><a href="#"><span>Slide</span></a></li>
-    </ul>
-</div>';
+	$handler->display->display_options['footer']['area']['content'] = '
+<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="control-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="control-right"></span>
+    <span class="sr-only">Next</span>
+  </a>';
 	$handler->display->display_options['footer']['area']['format'] = 'full_html';
 	/* Field: Content: Title */
 	$handler->display->display_options['fields']['title']['id'] = 'title';
@@ -89,12 +95,16 @@ function accessible_slider_example_views_default_views() {
 	$handler->display->display_options['fields']['nothing']['table'] = 'views';
 	$handler->display->display_options['fields']['nothing']['field'] = 'nothing';
 	$handler->display->display_options['fields']['nothing']['label'] = '';
-	$handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="slide">
-	<div class="slide-content">
-	<div class="slide-image">[as_slide_image]</div>
-	<div class="slide-text">[as_slide_caption]</div>
+	$handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="item active">
+        <div data-caption="#caption1">
+                [as_slide_image]
+        </div>
+        <div class="carousel-caption">
+           <h2>
+                 <a href="[as_slide_link]">[as_slide_caption]</a>
+           </h2>
 	</div>
-	</div>';
+</div>';
 	$handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
 	/* Sort criterion: Content: Post date */
 	$handler->display->display_options['sorts']['created']['id'] = 'created';
