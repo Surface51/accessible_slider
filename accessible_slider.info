@@ -4,7 +4,6 @@ core = 7.x
 version = "7.x-0.1-alpha"
 package = Accessible Slider
 dependencies[] = views
-dependencies[] = jquery_update
 stylesheets[all][] = css/bootstrap.min.css
 stylesheets[all][] = css/bootstrap-accessibility.css
 stylesheets[all][] = css/carousel.css
