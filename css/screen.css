@@ -41,4 +41,13 @@ button, input, optgroup, select, textarea {
   -moz-box-sizing: content-box;
   box-sizing: content-box; }
 
+/* line 48, ../sass/screen.scss */
+.radio, .checkbox {
+  display: table-cell; }
+
+/* line 52, ../sass/screen.scss */
+.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+  position: relative;
+  margin: 0; }
+
 /*# sourceMappingURL=screen.css.map */

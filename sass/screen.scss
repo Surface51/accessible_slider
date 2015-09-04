@@ -45,3 +45,14 @@ button, input, optgroup, select, textarea {
      -moz-box-sizing: content-box;
           box-sizing: content-box;
 }
+
+.radio, .checkbox {
+  display: table-cell;
+}
+
+.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+  position: relative;
+  margin: 0;
+}
+
+
