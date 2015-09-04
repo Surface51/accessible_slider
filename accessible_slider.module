@@ -1,4 +1,29 @@
 <?php
 
+/**
+* Implements hook_block_info().
+*/
+function accessible_slider_block_info() {
+	$blocks = array();
+	$blocks['testing_block'] = array(
+		'info' => t('Testing Block')
+	);
 
+	return $blocks;
+}
 
+function accessible_slider_block_view($delta = '') {
+	$block = array();
+	switch ($delta) {
+		case 'testing_block':
+		$block['subject'] = '';
+		$block['content'] = _accessible_slider_block_content();
+		break;
+	}
+	return $block;
+}
+
+function _accessible_slider_block_content() {
+	$output = file_get_contents(drupal_get_path("module", "accessible_slider")."/slider_markup.html");
+	return $output;
+}
