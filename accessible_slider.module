@@ -30,6 +30,5 @@ function _accessible_slider_block_content() {
 }
 
 function accessible_slider_js_alter(&$javascript) {
-	// Swap out jQuery to use an updated version of the library. 
-  $javascript['misc/jquery.js']['data'] = drupal_get_path('module', 'accessible_slider') . '/js/jquery.1.10-min.js';
+	$javascript['misc/jquery.js']['data'] = drupal_get_path('module', 'accessible_slider') . '/js/jquery.1.10-min.js';
 }
