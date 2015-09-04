@@ -1,0 +1,6 @@
+name = Accessible Slider Example
+description = Creates a content type and view with example content for the accessible slider.
+dependencies[] = accessible_slider
+core = 7.x
+version = "7.x-0.1-alpha"
+package = "Accessible Slider"
