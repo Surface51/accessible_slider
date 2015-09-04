@@ -1,0 +1,22 @@
+<?php
+/**
+ * @file
+ * install, and uninstall functions
+ * 
+ * The entity base table is defined here.
+ */
+
+/**
+ * Implements hook_install().
+ */
+
+function s51_slider_install() {
+    $t = get_t();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function s51_slider_uninstall() {
+ 
+}
