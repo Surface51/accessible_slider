@@ -30,7 +30,7 @@ function accessible_slider_example_install() {
 		'field_name' => 'as_slide_caption',
 		'type' => 'text',
 		'settings' => array(
-		'max_length' => 50,
+		'max_length' => 255,
 		),
 	);
 
@@ -73,7 +73,7 @@ function accessible_slider_example_install() {
 	$instances['as_slide_caption'] = array(
 		'field_name' => 'as_slide_caption',
 		'label' => $t('Slide Caption'),
-		'description' => $t('The slide caption. (50 Character Limit)'),
+		'description' => $t('The slide caption. (255 Character Limit)'),
 		'widget' => array(
 			'type' => 'text_textfield',
 		),
@@ -130,9 +130,59 @@ function accessible_slider_example_install() {
 	    ),
 	  );
 
-	 foreach ($instances as $instance) {
+	foreach ($instances as $instance) {
 		$instance['entity_type'] = 'node';
 		field_create_instance($instance);
+	}
+
+	$slider[0] = array(
+		'title' => "Example Carousel Slide 1",
+		'caption' => "Rick Steves&#8217; Dynamic Europe: Amsterdam, Prague, Berlin",
+		'image' => "amsterdamslide__800x600.jpg"
+	);
+
+	$slider[1] = array(
+		'title' => "Example Carousel Slide 1",
+		'caption' => "Travel with WILL to Southwest England and Paris",
+		'image' => "trustslide-2__800x600.jpg"
+	);
+
+	$slider[2] = array(
+		'title' => "Example Carousel Slide 3",
+		'caption' => "Survey confirms that PBS and member stations are America&#8217;s most trusted institution",
+		'image' => "foyleswarslide__800x600.jpg"
+	);
+
+	$slider[3] = array(
+		'title' => "Example Carousel Slide 4",
+		'caption' => "Great BritCom Vote: 7 pm Sat., March 7, on WILL-TV",
+		'image' => "britcomdavidslide__800x600.jpg"
+	);
+
+	$slider[4] = array(
+		'title' => "Example Carousel Slide 5",
+		'caption' => "Mid-American Gardener: Thursdays at 7 pm on WILL-TV",
+		'image' => "mag800-2__800x600.jpg"
+	);
+
+	foreach ($slider as $slide) {
+		$node = new stdClass();
+		$node->type = "as_slide";
+		$node->title = $slide['title'];
+		$node->language = LANGUAGE_NONE;
+		node_object_prepare($node);
+
+		// Let's add standard body field
+		$node->as_slide_caption[$node->language][0]['value'] = $slide['caption'];
+
+		$image_url = drupal_get_path("module", "accessible_slider").'/images/placeholder/'.$slide['image'];;
+
+		$file = file_save_data(file_get_contents($image_url), 'public://'.basename($image_url));
+		$file->status = 1;
+		$node->as_slide_image['und'][0] = (array)$file;
+
+		$node = node_submit($node);
+		node_save($node);
 	}
 }
 
@@ -140,5 +190,14 @@ function accessible_slider_example_install() {
  * Implements hook_uninstall().
  */
 function accessible_slider_example_uninstall() {
+
+  $query = new EntityFieldQuery();
+  $result = $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'as_slide')
+    ->execute();
+
+   node_delete_multiple(array_keys($result['node']));
+
+
 	node_type_delete("as_slide");
 }

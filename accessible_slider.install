@@ -19,5 +19,4 @@ function accessible_slider_install() {
  * Implements hook_uninstall().
  */
 function accessible_slider_uninstall() {
-	node_type_delete("as_slide");
 }
