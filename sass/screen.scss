@@ -62,7 +62,19 @@ a.carousel-control:focus,
 a.carousel-control.left,
 a.carousel-control.right {
   background: none;
+}
 
+.carousel-control {
+  .control-right {
+    background: url(../images/arrow-right.png) right 10px center no-repeat;
+    display: block;
+    height:100%; 
+  }
+  .control-left {
+    background: url(../images/arrow-left.png) 10px center no-repeat;
+    display:block;
+    height:100%;
+  }
 }
 
 .carousel-indicators {

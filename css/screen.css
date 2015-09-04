@@ -60,11 +60,22 @@ a.carousel-control.right {
   background: none; }
 
 /* line 68, ../sass/screen.scss */
+.carousel-control .control-right {
+  background: url(../images/arrow-right.png) right 10px center no-repeat;
+  display: block;
+  height: 100%; }
+/* line 73, ../sass/screen.scss */
+.carousel-control .control-left {
+  background: url(../images/arrow-left.png) 10px center no-repeat;
+  display: block;
+  height: 100%; }
+
+/* line 80, ../sass/screen.scss */
 .carousel-indicators {
   margin: 0 0 0 -30% !important;
   padding: 0px !important;
   bottom: .5em; }
-  /* line 72, ../sass/screen.scss */
+  /* line 84, ../sass/screen.scss */
   .carousel-indicators li, .carousel-indicators li.active {
     box-shadow: none;
     height: 12px;
