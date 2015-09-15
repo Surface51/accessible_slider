@@ -78,6 +78,13 @@ $view = new view();
 	$handler->display->display_options['fields']['as_slide_title']['label'] = '';
 	$handler->display->display_options['fields']['as_slide_title']['exclude'] = TRUE;
 	$handler->display->display_options['fields']['as_slide_title']['element_label_colon'] = FALSE;
+	/* Field: Content: Slide Link */
+	$handler->display->display_options['fields']['as_slide_link']['id'] = 'as_slide_link';
+	$handler->display->display_options['fields']['as_slide_link']['table'] = 'field_data_as_slide_link';
+	$handler->display->display_options['fields']['as_slide_link']['field'] = 'as_slide_link';
+	$handler->display->display_options['fields']['as_slide_link']['label'] = '';
+	$handler->display->display_options['fields']['as_slide_link']['exclude'] = TRUE;
+	$handler->display->display_options['fields']['as_slide_link']['element_label_colon'] = FALSE;
 	/* Field: Content: Slide Caption */
 	$handler->display->display_options['fields']['as_slide_caption']['id'] = 'as_slide_caption';
 	$handler->display->display_options['fields']['as_slide_caption']['table'] = 'field_data_as_slide_caption';
@@ -102,17 +109,18 @@ $view = new view();
 	$handler->display->display_options['fields']['nothing']['table'] = 'views';
 	$handler->display->display_options['fields']['nothing']['field'] = 'nothing';
 	$handler->display->display_options['fields']['nothing']['label'] = '';
-	$handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="item active hey-barry">
+	$handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="item active">
         <div data-caption="#caption1">
                 [as_slide_image]
         </div>
         <div class="carousel-caption">
-           <h1>
-           		 <a href="[as_slide_link]" class="caption-header">[as_slide_title]</a>
-           </h1>
-           <h2>
-                 <a href="[as_slide_link]">[as_slide_caption]</a>
-           </h2>
+           <div class="caption-header">
+                [as_slide_title]
+           </div>
+           <div class="hidden-xs hidden-sm">
+                <p>[as_slide_caption]</p>
+           </div>
+           <h2><a href="[as_slide_link]">Page Link</a></h2>
 	</div>
 </div>';
 	$handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
