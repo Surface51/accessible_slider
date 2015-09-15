@@ -26,6 +26,14 @@ function accessible_slider_example_install() {
 
 	$fields = array();
 
+	$fields['as_slide_title'] = array(
+		'field_name' => 'as_slide_title',
+		'type' => 'text',
+		'settings' => array(
+		'max_length' => 75,
+		),
+	);
+
 	$fields['as_slide_caption'] = array(
 		'field_name' => 'as_slide_caption',
 		'type' => 'text',
@@ -77,6 +85,17 @@ function accessible_slider_example_install() {
 
 	// Create field instances.
 	$instances = array();
+
+	$instances['as_slide_title'] = array(
+		'field_name' => 'as_slide_title',
+		'label' => $t('Slide Title'),
+		'description' => $t('The slide title. (75 Character Limit)'),
+		'widget' => array(
+			'type' => 'text_textfield',
+		),
+		'required' => FALSE,
+		'bundle' => 'as_slide'
+	);
 
 	$instances['as_slide_caption'] = array(
 		'field_name' => 'as_slide_caption',
@@ -155,38 +174,38 @@ function accessible_slider_example_install() {
 	}
 
 	$slider[0] = array(
-		'title' => "Example Carousel Slide 1",
-		'caption' => "Rick Steves&#8217; Dynamic Europe: Amsterdam, Prague, Berlin",
-		'image' => "amsterdamslide__800x600.jpg",
-		'link' => "/highlights/story/rick-steves-dynamic-europe-amsterdam-prague-berlin"
+		'title' => "Top Level Header Copy",
+		'caption' => "Lorem ipsum dolor sit To conseni eturit prem. Otaquia commolu ptatem vollam aboreptaepe.",
+		'image' => "02E78485.jpg",
+		'link' => "http://drupal.org"
 	);
 
 	$slider[1] = array(
-		'title' => "Example Carousel Slide 1",
-		'caption' => "Travel with WILL to Southwest England and Paris",
-		'image' => "trustslide-2__800x600.jpg",
-		'link' => "http://will.illinois.edu/willtravel/tour/sept.-14-24-or-27-2015-southwest-england-paris-masterpieces-mysteries"
+		'title' => "Top Level Header Copy",
+		'caption' => "Lorem ipsum dolor sit To conseni eturit prem. Otaquia commolu ptatem vollam aboreptaepe.",
+		'image' => "ING_42097_02795.jpg",
+		'link' => "http://drupal.org"
 	);
 
 	$slider[2] = array(
-		'title' => "Example Carousel Slide 3",
-		'caption' => "Survey confirms that PBS and member stations are America&#8217;s most trusted institution",
-		'image' => "foyleswarslide__800x600.jpg",
-		'link' => "http://www.pbs.org/about/news/archive/2015/pbs-most-trusted/"
+		'title' => "Top Level Header Copy",
+		'caption' => "Lorem ipsum dolor sit To conseni eturit prem. Otaquia commolu ptatem vollam aboreptaepe.",
+		'image' => "ING_42397_01477.jpg",
+		'link' => "http://drupal.org"
 	);
 
 	$slider[3] = array(
-		'title' => "Example Carousel Slide 4",
-		'caption' => "Great BritCom Vote: 7 pm Sat., March 7, on WILL-TV",
-		'image' => "britcomdavidslide__800x600.jpg",
-		'link' => "http://www.will.illinois.edu/highlights/story/foyles-war-revisited"
+		'title' => "Top Level Header Copy",
+		'caption' => "Lorem ipsum dolor sit To conseni eturit prem. Otaquia commolu ptatem vollam aboreptaepe.",
+		'image' => "ISS_0893_03993.jpg",
+		'link' => "http://drupal.org"
 	);
 
 	$slider[4] = array(
-		'title' => "Example Carousel Slide 5",
-		'caption' => "Mid-American Gardener: Thursdays at 7 pm on WILL-TV",
-		'image' => "mag800-2__800x600.jpg",
-		'link' => "http://www.will.illinois.edu/midamericangardener"
+		'title' => "Top Level Header Copy",
+		'caption' => "Lorem ipsum dolor sit To conseni eturit prem. Otaquia commolu ptatem vollam aboreptaepe.",
+		'image' => "ISS_0893_05267.jpg",
+		'link' => "http://drupal.org"
 	);
 
 	foreach ($slider as $slide) {
@@ -197,6 +216,7 @@ function accessible_slider_example_install() {
 		node_object_prepare($node);
 
 		// Let's add standard body field
+		$node->as_slide_title[$node->language][0]['value'] = $slide['title'];
 		$node->as_slide_caption[$node->language][0]['value'] = $slide['caption'];
 		$node->as_slide_link[$node->language][0]['value'] = $slide['link'];
 
