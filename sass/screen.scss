@@ -2,6 +2,7 @@
 @import "breakpoint";
 @import "singularitygs";
 @import "toolkit";
+@import "grid";
 
 html {
 	font-size:16px;
@@ -58,6 +59,10 @@ button, input, optgroup, select, textarea {
   margin: 0;
 }
 
+.carousel {
+  max-width: 100%;
+  max-height: 800px;
+}
 a.carousel-control:focus,
 a.carousel-control.left,
 a.carousel-control.right {
@@ -65,15 +70,25 @@ a.carousel-control.right {
 }
 
 .carousel-control {
+  opacity: .8;
+  .control-left,
   .control-right {
-    background: url(../images/arrow-right.png) right 10px center no-repeat;
     display: block;
     height:100%; 
+    background-size: 50%;
+    @include breakpoint ($desk) {
+      background-size: auto;
+    }
+  }
+  .control-right {
+    background-image: url(../images/arrow-right.png);
+    background-position: 50% center;
+    background-repeat: no-repeat;
   }
   .control-left {
-    background: url(../images/arrow-left.png) 10px center no-repeat;
-    display:block;
-    height:100%;
+    background-image: url(../images/arrow-left.png);
+    background-position: 50% center;
+    background-repeat: no-repeat;
   }
 }
 
@@ -82,8 +97,37 @@ a.carousel-control.right {
   padding:0px !important;
   bottom:.5em;
   li, li.active {
+    border: 3px solid #fff;
     box-shadow: none;
-    height:12px;
-    width:12px;
+    height:10px;
+    width:10px;
+    margin: 0 5px;
+  }
+}
+.carousel-inner img {
+  max-width:100%;
+  width: 100%;
+  height: auto;
+  max-height: 800px;
+}
+.carousel-caption {
+  font-family: Futura, Helvetica ,sans-serif;
+  text-shadow: none;
+  .caption-header {
+    font-size: 48px;
+    font-weight:bold;
+    text-transform: uppercase;
+    margin: 1em 0;
+  }
+  h2 {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 1em 0;
+    a {
+      font-size: 16px;
+      border: 3px solid #fff;
+      color: #fff;
+      padding: 5px;
+    }
   }
 }
