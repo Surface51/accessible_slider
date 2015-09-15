@@ -29,7 +29,73 @@ function _accessible_slider_block_content() {
 	return $output;
 }
 
+function accessible_slider_block_view_alter(&$data, $block) {
+  if (isset($data['subject'])) {
+    if ($data['subject'] == "as Slider Block") {
+        $id = str_replace("as_slider_block-", "", $block->delta);
+        //variable_get($id.'sliderType')
+
+        $classString = "";
+
+        if (variable_get($id.'className')) {
+          $classString .= variable_get($id.'className')." ";
+        }
+
+
+        $classString .= "carousel ";
+
+        $classString .= "slider-type-".variable_get($id.'sliderType')." ";
+
+        $dataAttrString = "";
+        /*
+        $dataAttrString .= "data-transspeed='".variable_get($id.'transitionTime')."' ";
+        $dataAttrString .= "data-timeoutspeed='".variable_get($id.'timeoutTime')."'";
+        $dataAttrString .= "data-autoslide='".variable_get($id.'autoSlide')."'";
+        $dataAttrString .= "data-showpause='".variable_get($id.'showPause')."'";
+        $dataAttrString .= "data-showpager='".variable_get($id.'showPager')."'";
+        $dataAttrString .= "data-showarrows='".variable_get($id.'showArrows')."'";
+        $dataAttrString .= "data-transitiontype='".variable_get($id.'sliderType')."'";
+		*/
+
+		$dataAttrString .= "data-ride='carousel' data-pause='hover'";
+
+        $data['content']['#markup'] = str_replace("view-as-slider-block", "view-as-slider-block ".$classString, $data['content']['#markup']);
+        $data['content']['#markup'] = str_replace('class="view ', $dataAttrString.' id="myCarousel" class="view ', $data['content']['#markup']);
+
+        $data['content']['#markup'] = str_replace("view-content", "view-content carousel-inner", $data['content']['#markup']);
+
+        $data['content']['#markup'] = str_replace("views-row", "views-row item", $data['content']['#markup']);
+        $data['content']['#markup'] = str_replace("item-1", "item-1 active", $data['content']['#markup']);
+
+       // dsm($data);
+
+       // dsm($data['content']['#markup']);
+    }
+  }
+}
+
 function accessible_slider_js_alter(&$javascript) {
-	// Swap out jQuery to use an updated version of the library. 
-  $javascript['misc/jquery.js']['data'] = drupal_get_path('module', 'accessible_slider') . '/js/jquery.1.10-min.js';
+	if (path_is_admin(current_path())) {
+
+	} else {
+
+  		$javascript['misc/bootstrap.min.js'] = drupal_js_defaults(drupal_get_path('module', 'accessible_slider') . '/js/bootstrap.min.js');
+  		$javascript['misc/bootstrap.min.js']['weight'] = 0;
+  		$javascript['misc/bootstrap-accessibility.js'] = drupal_js_defaults(drupal_get_path('module', 'accessible_slider') . '/js/bootstrap-accessibility.js');
+  		$javascript['misc/bootstrap-accessibility.js']['weight'] = 1;
+
+		$javascript['misc/jquery.js']['data'] = drupal_get_path('module', 'accessible_slider') . '/js/jquery.1.10-min.js';
+		//dsm($javascript);
+	}
+}
+
+/**
+* Implements hook_entity_info_alter().
+*/
+function accessible_slider_entity_info_alter(&$entity_info) {
+
+  $entity_info['node']['view modes']['another_teaser'] = array(
+    'label' => t('Another teaser'),
+    'custom settings' => TRUE,
+  );
 }

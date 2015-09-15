@@ -10,13 +10,13 @@
  * Implements hook_install().
  */
 
-function s51_slider_install() {
+function accessible_slider_install() {
     $t = get_t();
+
 }
 
 /**
  * Implements hook_uninstall().
  */
-function s51_slider_uninstall() {
- 
+function accessible_slider_uninstall() {
 }
