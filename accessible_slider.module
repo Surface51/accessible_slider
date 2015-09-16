@@ -12,17 +12,27 @@ function accessible_slider_block_info() {
 	return $blocks;
 }
 
+function accessible_slider_permission() {
+  return array(
+    'access slider options' => array(
+      'title' => t('Access Slider Options'),
+      'description' => t('Change options on the slider.'),
+    ),
+  );
+}
+
 function accessible_slider_menu() {
   $items = array();
 
-  // $items['admin/config/content/s51_slider'] = array(
-  //   'title' => 'Accessible Slider Options',
-  //   'description' => 'Configuration for S51 Sliders',
-  //   'page callback' => 'drupal_get_form',
-  //   'page arguments' => array('_accessible_slider_form'),
-  //   'access arguments' => array('access administration pages'),
-  //   'type' => MENU_NORMAL_ITEM,
-  // );
+
+  $items['admin/config/media/accessible_slider'] = array(
+    'title' => 'Accessible Slider Options',
+    'description' => 'Configuration for S51 Sliders',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('_accessible_slider_form'),
+    'access arguments' => array('access slider options'),
+    'type' => MENU_NORMAL_ITEM,
+  );
 
   return $items;
 }
@@ -34,20 +44,31 @@ function accessible_slider_menu() {
  */
 function _accessible_slider_form($form, &$form_state) {
 
-  // $form['slider_form'] = array(
-  //   '#type' => 'fieldset', 
-  //   '#title' => "Fieldset Value",
-  // );
+  $form['slider_form'] = array(
+    '#type' => 'fieldset', 
+    '#title' => "Fieldset Value",
+  );
 
-  // // Drop down for slider type.
-  // $form['slider_form']['className'] = array(
-  //   '#type' => 'textfield',
-  //   '#title' => t('Class Name'),
-  //   '#default_value' => "default value",
-  //   '#size' => 15,
-  //   '#description' => t('A custom classname for this slider.'),
-  //   '#required' => TRUE,
-  // );
+
+  // Drop down for slider type.
+  $form['slider_form']['className'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Class Name'),
+    '#default_value' => variable_get('className', "My value"),
+    '#size' => 15,
+    '#description' => t('A custom classname for this slider.'),
+    '#required' => TRUE,
+  );
+
+  // Drop down for slider type.
+    $form['slider_form']['sliderType'] = array(
+     '#type' => 'select',
+     '#title' => t('Slider Type'),
+     '#options' => array('infinite' => 'infinate', 'carousel-fade' => 'crossfade'),
+     '#required' => TRUE,
+     '#default_value' => variable_get('sliderType', "infinite"),
+  );
+
 
   // $form["slider_form"]['markup'] = array(
   //     '#type' => 'markup', 
@@ -75,7 +96,7 @@ function _accessible_slider_block_content() {
 }
 
 function accessible_slider_views_pre_render(&$view) {
-  dsm($view);
+ // dsm($view);
 }
 
 function accessible_slider_block_view_alter(&$data, $block) {
@@ -91,7 +112,9 @@ function accessible_slider_block_view_alter(&$data, $block) {
         }
 
 
-        $classString .= "carousel slide ";
+        $classString .= "carousel slide ".variable_get('className')." ";
+
+        $classString .= "carousel slide ".variable_get('sliderType')." ";
 
         $classString .= "slider-type-".variable_get($id.'sliderType')." ";
 
