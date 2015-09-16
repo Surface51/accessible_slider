@@ -12,6 +12,51 @@ function accessible_slider_block_info() {
 	return $blocks;
 }
 
+function accessible_slider_menu() {
+  $items = array();
+
+  // $items['admin/config/content/s51_slider'] = array(
+  //   'title' => 'Accessible Slider Options',
+  //   'description' => 'Configuration for S51 Sliders',
+  //   'page callback' => 'drupal_get_form',
+  //   'page arguments' => array('_accessible_slider_form'),
+  //   'access arguments' => array('access administration pages'),
+  //   'type' => MENU_NORMAL_ITEM,
+  // );
+
+  return $items;
+}
+
+/**
+ * Page callback: Current posts settings
+ *
+ * @see current_posts_menu()
+ */
+function _accessible_slider_form($form, &$form_state) {
+
+  // $form['slider_form'] = array(
+  //   '#type' => 'fieldset', 
+  //   '#title' => "Fieldset Value",
+  // );
+
+  // // Drop down for slider type.
+  // $form['slider_form']['className'] = array(
+  //   '#type' => 'textfield',
+  //   '#title' => t('Class Name'),
+  //   '#default_value' => "default value",
+  //   '#size' => 15,
+  //   '#description' => t('A custom classname for this slider.'),
+  //   '#required' => TRUE,
+  // );
+
+  // $form["slider_form"]['markup'] = array(
+  //     '#type' => 'markup', 
+  //     '#markup' => t('Here is an example of markup'),
+  // );
+
+  return system_settings_form($form);
+}
+
 function accessible_slider_block_view($delta = '') {
 	$block = array();
 
@@ -27,6 +72,10 @@ function accessible_slider_block_view($delta = '') {
 function _accessible_slider_block_content() {
 	$output = file_get_contents(drupal_get_path("module", "accessible_slider")."/slider_markup.html");
 	return $output;
+}
+
+function accessible_slider_views_pre_render(&$view) {
+  dsm($view);
 }
 
 function accessible_slider_block_view_alter(&$data, $block) {
@@ -59,7 +108,7 @@ function accessible_slider_block_view_alter(&$data, $block) {
         $dataAttrString .= "data-transitiontype='".variable_get($id.'sliderType')."'";
 		*/
 
-		$dataAttrString .= "data-ride='carousel' data-pause='hover'";
+		    $dataAttrString .= "data-ride='carousel' data-pause='hover'";
 
         $data['content']['#markup'] = str_replace("view-as-slider-block", "view-as-slider-block ".$classString, $data['content']['#markup']);
         $data['content']['#markup'] = str_replace('class="view ', $dataAttrString.' id="myCarousel" class="view ', $data['content']['#markup']);
@@ -70,13 +119,13 @@ function accessible_slider_block_view_alter(&$data, $block) {
         $data['content']['#markup'] = str_replace("item-1", "item-1 active", $data['content']['#markup']);
 
         $indicatorString = '<ol class="carousel-indicators">';
-        $indicatorString .= '<li data-target="#myCarousel" data-slide-to="1"></li>';
+        $indicatorString .= '<li data-target="#myCarousel" data-slide-to="1" class="active"></li>';
         $indicatorString .= '</ol>';
 
         $data['content']['#markup'] = str_replace('<ol class="carousel-indicators"></ol>', $indicatorString, $data['content']['#markup']);
 
 
-        dsm($data['content']['#markup']);
+      //  dsm($block);
     }
   }
 }
