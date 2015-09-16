@@ -42,7 +42,7 @@ function accessible_slider_block_view_alter(&$data, $block) {
         }
 
 
-        $classString .= "carousel ";
+        $classString .= "carousel slide ";
 
         $classString .= "slider-type-".variable_get($id.'sliderType')." ";
 
