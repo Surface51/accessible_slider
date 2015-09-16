@@ -131,4 +131,34 @@ a.carousel-control.right {
       color: #fff;
       padding: 5px; }
 
+/* line 137, ../sass/screen.scss */
+.carousel-fade .carousel-inner > .item {
+  transition-property: opacity;
+  opacity: 0;
+  left: 0;
+  z-index: 1; }
+/* line 144, ../sass/screen.scss */
+.carousel-fade .carousel-inner > .item,
+.carousel-fade .carousel-inner > .active.left,
+.carousel-fade .carousel-inner > .active.right {
+  opacity: 0; }
+/* line 150, ../sass/screen.scss */
+.carousel-fade .carousel-inner > .active,
+.carousel-fade .carousel-inner > .next.left,
+.carousel-fade .carousel-inner > .prev.right {
+  opacity: 1; }
+/* line 156, ../sass/screen.scss */
+.carousel-fade .carousel-inner > .active {
+  z-index: 2; }
+/* line 161, ../sass/screen.scss */
+.carousel-fade .carousel-inner > .next,
+.carousel-fade .carousel-inner > .prev,
+.carousel-fade .carousel-inner > .active.left,
+.carousel-fade .carousel-inner > .active.right {
+  left: 0;
+  transform: translate3d(0, 0, 0); }
+/* line 170, ../sass/screen.scss */
+.carousel-fade .carousel-control {
+  z-index: 2; }
+
 /*# sourceMappingURL=screen.css.map */
