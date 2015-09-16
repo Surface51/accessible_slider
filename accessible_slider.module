@@ -86,7 +86,7 @@ function accessible_slider_js_alter(&$javascript) {
   		$javascript['misc/bootstrap-accessibility.js'] = drupal_js_defaults(drupal_get_path('module', 'accessible_slider') . '/js/bootstrap-accessibility.js');
   		$javascript['misc/bootstrap-accessibility.js']['weight'] = 1;
 
-		$javascript['misc/jquery.js']['data'] = drupal_get_path('module', 'accessible_slider') . '/js/jquery.1.10-min.js';
+		  $javascript['misc/jquery.js']['data'] = drupal_get_path('module', 'accessible_slider') . '/js/jquery.1.10-min.js';
 		//dsm($javascript);
       drupal_add_css(drupal_get_path('module', 'accessible_slider') . '/css/bootstrap.min.css', array('group' => CSS_DEFAULT));
       drupal_add_css(drupal_get_path('module', 'accessible_slider') . '/css/bootstrap-accessibility.css', array('group' => CSS_DEFAULT));
