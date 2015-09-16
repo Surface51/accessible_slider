@@ -46,7 +46,9 @@ function accessible_slider_block_view_alter(&$data, $block) {
 
         $classString .= "slider-type-".variable_get($id.'sliderType')." ";
 
+
         $dataAttrString = "";
+        $dataAttrString .= "data-interval='false'";
         /*
         $dataAttrString .= "data-transspeed='".variable_get($id.'transitionTime')."' ";
         $dataAttrString .= "data-timeoutspeed='".variable_get($id.'timeoutTime')."'";

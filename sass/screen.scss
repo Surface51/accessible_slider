@@ -131,3 +131,7 @@ a.carousel-control.right {
     }
   }
 }
+
+#myCarousel .views-row {
+  //@include transition(left .5s ease-in-out);
+}
