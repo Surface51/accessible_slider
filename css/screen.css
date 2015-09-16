@@ -64,36 +64,43 @@ a.carousel-control.left,
 a.carousel-control.right {
   background: none; }
 
-/* line 72, ../sass/screen.scss */
+/* line 74, ../sass/screen.scss */
 .carousel-control {
   opacity: .8; }
-  /* line 74, ../sass/screen.scss */
+  /* line 76, ../sass/screen.scss */
   .carousel-control .control-left,
   .carousel-control .control-right {
     display: block;
     height: 100%;
     background-size: 50%; }
     @media (min-width: 66em) {
-      /* line 74, ../sass/screen.scss */
+      /* line 76, ../sass/screen.scss */
       .carousel-control .control-left,
       .carousel-control .control-right {
         background-size: auto; } }
-  /* line 83, ../sass/screen.scss */
+  /* line 85, ../sass/screen.scss */
   .carousel-control .control-right {
     background-image: url(../images/arrow-right.png);
     background-position: 50% center;
     background-repeat: no-repeat; }
-  /* line 88, ../sass/screen.scss */
+  /* line 90, ../sass/screen.scss */
   .carousel-control .control-left {
     background-image: url(../images/arrow-left.png);
     background-position: 50% center;
     background-repeat: no-repeat; }
+  /* line 95, ../sass/screen.scss */
+  .carousel-control:focus {
+    outline: 0 !important;
+    border-color: inherit;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    background-color: rgba(0, 0, 0, 0.2) !important; }
 
-/* line 95, ../sass/screen.scss */
+/* line 110, ../sass/screen.scss */
 .carousel-indicators {
   margin: 0 0 0 -30% !important;
   padding: 0px !important; }
-  /* line 99, ../sass/screen.scss */
+  /* line 114, ../sass/screen.scss */
   .carousel-indicators li, .carousel-indicators li.active {
     border: 3px solid #fff;
     box-shadow: none;
@@ -101,63 +108,64 @@ a.carousel-control.right {
     width: 10px;
     margin: 0 5px; }
 
-/* line 107, ../sass/screen.scss */
+/* line 122, ../sass/screen.scss */
 .carousel-inner img {
   max-width: 100%;
   width: 100%;
   height: auto;
   max-height: 800px; }
 
-/* line 113, ../sass/screen.scss */
+/* line 128, ../sass/screen.scss */
 .carousel-caption {
   font-family: Futura, Helvetica ,sans-serif;
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); }
-  /* line 116, ../sass/screen.scss */
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  bottom: 50px; }
+  /* line 132, ../sass/screen.scss */
   .carousel-caption .caption-header {
     font-size: 48px;
     font-weight: bold;
     text-transform: uppercase;
     margin: 0;
     line-height: 100%; }
-  /* line 123, ../sass/screen.scss */
+  /* line 139, ../sass/screen.scss */
   .carousel-caption h2 {
     font-weight: bold;
     text-transform: uppercase;
-    margin: 1em 0; }
-    /* line 127, ../sass/screen.scss */
+    margin: 1.5em 0; }
+    /* line 143, ../sass/screen.scss */
     .carousel-caption h2 a {
       font-size: 16px;
       border: 3px solid #fff;
       color: #fff;
       padding: 5px; }
 
-/* line 137, ../sass/screen.scss */
+/* line 154, ../sass/screen.scss */
 .carousel-fade .carousel-inner > .item {
   transition-property: opacity;
   opacity: 0;
   left: 0;
   z-index: 1; }
-/* line 144, ../sass/screen.scss */
+/* line 161, ../sass/screen.scss */
 .carousel-fade .carousel-inner > .item,
 .carousel-fade .carousel-inner > .active.left,
 .carousel-fade .carousel-inner > .active.right {
   opacity: 0; }
-/* line 150, ../sass/screen.scss */
+/* line 167, ../sass/screen.scss */
 .carousel-fade .carousel-inner > .active,
 .carousel-fade .carousel-inner > .next.left,
 .carousel-fade .carousel-inner > .prev.right {
   opacity: 1; }
-/* line 156, ../sass/screen.scss */
+/* line 173, ../sass/screen.scss */
 .carousel-fade .carousel-inner > .active {
   z-index: 2; }
-/* line 161, ../sass/screen.scss */
+/* line 178, ../sass/screen.scss */
 .carousel-fade .carousel-inner > .next,
 .carousel-fade .carousel-inner > .prev,
 .carousel-fade .carousel-inner > .active.left,
 .carousel-fade .carousel-inner > .active.right {
   left: 0;
   transform: translate3d(0, 0, 0); }
-/* line 170, ../sass/screen.scss */
+/* line 187, ../sass/screen.scss */
 .carousel-fade .carousel-control {
   z-index: 2; }
 
