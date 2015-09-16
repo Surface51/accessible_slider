@@ -111,19 +111,20 @@ a.carousel-control.right {
 /* line 113, ../sass/screen.scss */
 .carousel-caption {
   font-family: Futura, Helvetica ,sans-serif;
-  text-shadow: none; }
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); }
   /* line 116, ../sass/screen.scss */
   .carousel-caption .caption-header {
     font-size: 48px;
     font-weight: bold;
     text-transform: uppercase;
-    margin: 1em 0; }
-  /* line 122, ../sass/screen.scss */
+    margin: 0;
+    line-height: 100%; }
+  /* line 123, ../sass/screen.scss */
   .carousel-caption h2 {
     font-weight: bold;
     text-transform: uppercase;
     margin: 1em 0; }
-    /* line 126, ../sass/screen.scss */
+    /* line 127, ../sass/screen.scss */
     .carousel-caption h2 a {
       font-size: 16px;
       border: 3px solid #fff;
