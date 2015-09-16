@@ -37,14 +37,7 @@ $view = new view();
 	$handler->display->display_options['header']['area']['table'] = 'views';
 	$handler->display->display_options['header']['area']['field'] = 'area';
 	$handler->display->display_options['header']['area']['label'] = 'Arrows';
-	$handler->display->display_options['header']['area']['content'] = '<ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
-      <li data-target="#myCarousel" data-slide-to="4"></li>
-      <li data-target="#myCarousel" data-slide-to="5"></li>
- </ol>';
+	$handler->display->display_options['header']['area']['content'] = '<ol class="carousel-indicators"></ol>';
 	$handler->display->display_options['header']['area']['format'] = 'full_html';
 	/* Footer: Global: Text area */
 	$handler->display->display_options['footer']['area']['id'] = 'area';

@@ -69,9 +69,14 @@ function accessible_slider_block_view_alter(&$data, $block) {
         $data['content']['#markup'] = str_replace("views-row", "views-row item", $data['content']['#markup']);
         $data['content']['#markup'] = str_replace("item-1", "item-1 active", $data['content']['#markup']);
 
-       // dsm($data);
+        $indicatorString = '<ol class="carousel-indicators">';
+        $indicatorString .= '<li data-target="#myCarousel" data-slide-to="1"></li>';
+        $indicatorString .= '</ol>';
 
-       // dsm($data['content']['#markup']);
+        $data['content']['#markup'] = str_replace('<ol class="carousel-indicators"></ol>', $indicatorString, $data['content']['#markup']);
+
+
+        dsm($data['content']['#markup']);
     }
   }
 }
