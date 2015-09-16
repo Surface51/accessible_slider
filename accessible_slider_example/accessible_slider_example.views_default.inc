@@ -45,14 +45,7 @@ $view = new view();
 	$handler->display->display_options['footer']['area']['field'] = 'area';
 	$handler->display->display_options['footer']['area']['label'] = 'Pager';
 	$handler->display->display_options['footer']['area']['content'] = '
-<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-    <span class="control-left"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-    <span class="control-right"></span>
-    <span class="sr-only">Next</span>
-  </a>';
+<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="control-left"></span><span class="sr-only">Previous</span></a><a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="control-right"></span><span class="sr-only">Next</span></a>';
 	$handler->display->display_options['footer']['area']['format'] = 'full_html';
 	/* Field: Content: Title */
 	$handler->display->display_options['fields']['title']['id'] = 'title';
