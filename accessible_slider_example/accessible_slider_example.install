@@ -44,10 +44,7 @@ function accessible_slider_example_install() {
 
 	$fields['as_slide_link'] = array(
 		'field_name' => 'as_slide_link',
-		'type' => 'text',
-		'settings' => array(
-		'max_length' => 255,
-		),
+		'type' => 'link_field',
 	);
 
 	$fields['as_slide_image'] = array(
@@ -112,10 +109,11 @@ function accessible_slider_example_install() {
 		'field_name' => 'as_slide_link',
 		'label' => $t('Slide Link'),
 		'description' => $t('The slide URL'),
-		'widget' => array(
-			'type' => 'text_textfield',
+		'settings' => array(
+			'title' => 'optional',
+        	'attributes' => array(
+        	),
 		),
-		'required' => FALSE,
 		'bundle' => 'as_slide'
 	);
 
@@ -174,38 +172,44 @@ function accessible_slider_example_install() {
 	}
 
 	$slider[0] = array(
-		'title' => "Top Level Header Copy",
+		'title' => "Example Slide 1",
 		'caption' => "Lorem ipsum dolor sit To conseni eturit prem. Otaquia commolu ptatem vollam aboreptaepe.",
 		'image' => "02E78485.jpg",
-		'link' => "http://drupal.org"
+		'link title' => "Read More", 
+		'link url' => "http://drupal.org" 
+
 	);
 
 	$slider[1] = array(
-		'title' => "Top Level Header Copy",
-		'caption' => "Lorem ipsum dolor sit To conseni eturit prem. Otaquia commolu ptatem vollam aboreptaepe.",
+		'title' => "Example Slide 2",
+		'caption' => "Duis finibus sem ut auctor commodo. Proin ullamcorper diam at erat porta dignissim.",
 		'image' => "ING_42097_02795.jpg",
-		'link' => "http://drupal.org"
+		'link title' => "Read More", 
+		'link url' => "http://drupal.org" 
 	);
 
 	$slider[2] = array(
-		'title' => "Top Level Header Copy",
-		'caption' => "Lorem ipsum dolor sit To conseni eturit prem. Otaquia commolu ptatem vollam aboreptaepe.",
+		'title' => "Example Slide 3",
+		'caption' => "Integer arcu sem, lobortis porttitor sollicitudin sit amet, sagittis quis mauris.",
 		'image' => "ING_42397_01477.jpg",
-		'link' => "http://drupal.org"
+		'link title' => "Read More", 
+		'link url' => "http://drupal.org" 
 	);
 
 	$slider[3] = array(
-		'title' => "Top Level Header Copy",
-		'caption' => "Lorem ipsum dolor sit To conseni eturit prem. Otaquia commolu ptatem vollam aboreptaepe.",
+		'title' => "Example Slide 4",
+		'caption' => "Aliquam maximus dui at augue tincidunt maximus.",
 		'image' => "ISS_0893_03993.jpg",
-		'link' => "http://drupal.org"
+		'link title' => "Read More", 
+		'link url' => "http://drupal.org" 
 	);
 
 	$slider[4] = array(
-		'title' => "Top Level Header Copy",
-		'caption' => "Lorem ipsum dolor sit To conseni eturit prem. Otaquia commolu ptatem vollam aboreptaepe.",
+		'title' => "Example Slide 5",
+		'caption' => "Praesent ut luctus dolor, sed consequat dui. Integer eu nunc non dui tempus commodo.",
 		'image' => "ISS_0893_05267.jpg",
-		'link' => "http://drupal.org"
+		'link title' => "Read More", 
+		'link url' => "http://drupal.org" 
 	);
 
 	foreach ($slider as $slide) {
@@ -218,7 +222,8 @@ function accessible_slider_example_install() {
 		// Let's add standard body field
 		$node->as_slide_title[$node->language][0]['value'] = $slide['title'];
 		$node->as_slide_caption[$node->language][0]['value'] = $slide['caption'];
-		$node->as_slide_link[$node->language][0]['value'] = $slide['link'];
+		$node->as_slide_link[$node->language][0]['title'] = $slide['link title'];
+		$node->as_slide_link[$node->language][0]['url'] = $slide['link url'];
 
 		$image_url = drupal_get_path("module", "accessible_slider").'/images/placeholder/'.$slide['image'];;
 
