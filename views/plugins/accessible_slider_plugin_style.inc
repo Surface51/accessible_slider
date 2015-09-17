@@ -52,5 +52,20 @@ class ViewsBootstrapCarouselPluginStyle extends views_plugin_style {
       '#description' => t('Pauses the cycling of the carousel on mouseenter and resumes the cycling of the carousel on mouseleave.'),
       '#default_value' => $this->options['pause'],
     );
+
+    $form['transition_options'] = array(
+      '#type' => 'value',
+      '#value' => array('carousel-linear' => t('Linear'),
+                        'carousel-fade' => t('Fade'))
+    );
+
+    $form['transition'] = array(
+      '#title' => t('Slider Transition'),
+      '#type' => 'select',
+      '#description' => "Select the slider type.",
+      '#options' => $form['transition_options']['#value'],
+      '#default_value' => $this->options['transition'],
+    );
+
   }
 }

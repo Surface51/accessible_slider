@@ -21,8 +21,8 @@ function template_preprocess_accessible_slider_plugin_style(&$vars) {
 
   drupal_add_js(drupal_get_path('module', 'accessible_slider') . '/js/views-bootstrap-carousel.js');
 
-  $vars['classes_array'][] = 'carousel slide';
-
+  $transition = $vars['options']['transition'];
+  $vars['classes_array'][] = 'carousel slide ' . $transition;
   $vars['navigation'] = (bool)$vars['options']['navigation'];
   $vars['indicators'] = (bool)$vars['options']['indicators'];
 }
