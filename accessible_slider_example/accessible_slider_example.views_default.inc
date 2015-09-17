@@ -39,7 +39,7 @@ function accessible_slider_example_views_default_views() {
 	$handler->display->display_options['row_options']['description'] = 'as_slide_caption';
 	$handler->display->display_options['row_options']['link'] = 'as_slide_link';
 	$handler->display->display_options['row_options']['link_text'] = 'as_slide_link_1';
-	
+
 	/* Field: Content: Title */
 	$handler->display->display_options['fields']['title']['id'] = 'title';
 	$handler->display->display_options['fields']['title']['table'] = 'node';
@@ -66,12 +66,13 @@ function accessible_slider_example_views_default_views() {
 	$handler->display->display_options['fields']['as_slide_caption']['element_label_colon'] = FALSE;
 	/* Field: Content: Slide Title */
 	$handler->display->display_options['fields']['as_slide_title']['id'] = 'as_slide_title';
+	$handler->display->display_options['fields']['as_slide_link']['id'] = 'as_slide_link';
 	$handler->display->display_options['fields']['as_slide_title']['table'] = 'field_data_as_slide_title';
 	$handler->display->display_options['fields']['as_slide_title']['field'] = 'as_slide_title';
 	$handler->display->display_options['fields']['as_slide_title']['label'] = '';
 	$handler->display->display_options['fields']['as_slide_title']['element_label_colon'] = FALSE;
 	/* Field: Content: Slide Link */
-	$handler->display->display_options['fields']['as_slide_link']['id'] = 'as_slide_link';
+	$handler->display->display_options['fields']['as_slide_title']['id'] = 'as_slide_title';
 	$handler->display->display_options['fields']['as_slide_link']['table'] = 'field_data_as_slide_link';
 	$handler->display->display_options['fields']['as_slide_link']['field'] = 'as_slide_link';
 	$handler->display->display_options['fields']['as_slide_link']['label'] = 'Link Title';
