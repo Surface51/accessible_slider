@@ -20,9 +20,13 @@ function template_preprocess_accessible_slider_plugin_style(&$vars) {
   ), 'setting');
 
   drupal_add_js(drupal_get_path('module', 'accessible_slider') . '/js/views-bootstrap-carousel.js');
+  
 
-  $transition = $vars['options']['transition'];
-  $vars['classes_array'][] = 'carousel slide ' . $transition;
+  if (isset($vars['options']['transition'])) {
+    $vars['classes_array'][] = 'carousel slide ' . $vars['options']['transition'];
+  } else {
+    $vars['classes_array'][] = 'carousel slide ';
+  }
   $vars['navigation'] = (bool)$vars['options']['navigation'];
   $vars['indicators'] = (bool)$vars['options']['indicators'];
 }
