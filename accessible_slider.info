@@ -1,7 +1,15 @@
 name = Accessible Slider
 description = Drupal implementation of the Tabpanel Accessiblity Plugin. 
 core = 7.x
-version = "7.x-0.1-alpha"
+version = "7.x-0.2-alpha"
 package = "Accessible Slider"
 dependencies[] = views
+<<<<<<< HEAD
 scripts[] = js/accessible_slider.js
+=======
+
+scripts[] = js/accessible_slider.js
+
+files[] = views/plugins/accessible_slider_plugin_style.inc
+files[] = views/plugins/accessible_slider_plugin_rows.inc
+>>>>>>> be0d5459e65e549787a03a0f8daaff9023d82e56
