@@ -36,6 +36,10 @@ class ViewsBootstrapCarouselPluginRows extends views_plugin_row {
       }
     }
 
+   $form ['markup'] = array(
+          '#markup' => '<div class="form-item description">' . t('Please add fields in the "Fields" section to make them available as options here.') . '</div>',
+        ); 
+
     $form['image'] = array(
       '#type' => 'select',
       '#required' => TRUE,
@@ -63,6 +67,13 @@ class ViewsBootstrapCarouselPluginRows extends views_plugin_row {
       '#title' => t('Link'),
       '#options' => $fields,
       '#default_value' => $this->options['link'],
+    );
+
+    $form['link_text'] = array(
+      '#type' => 'select',
+      '#title' => t('Link Text'),
+      '#options' => $fields,
+      '#default_value' => $this->options['link_text'],
     );
   }
 }
