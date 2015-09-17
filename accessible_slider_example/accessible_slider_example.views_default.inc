@@ -97,6 +97,13 @@ function accessible_slider_example_views_default_views() {
 	$handler->display->display_options['filters']['status']['value'] = 1;
 	$handler->display->display_options['filters']['status']['group'] = 1;
 	$handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'as_slide' => 'as_slide',
+  );
 
 	/* Display: Block */
 	$handler = $view->new_display('block', 'Block', 'block');
