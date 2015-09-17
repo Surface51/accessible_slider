@@ -14,14 +14,16 @@ function accessible_slider_views_api() {
  * Implements hook_js_alter().
  */
 function accessible_slider_js_alter(&$javascript) {
-  if (path_is_admin(current_path())) {
+	if (path_is_admin(current_path())) {
 
-  } else {
-      $javascript['misc/bootstrap.min.js'] = drupal_js_defaults(drupal_get_path('module', 'accessible_slider') . '/js/bootstrap.min.js');
-      $javascript['misc/bootstrap.min.js']['weight'] = 0;
-      //$javascript['misc/bootstrap-accessibility.js'] = drupal_js_defaults(drupal_get_path('module', 'accessible_slider') . '/js/bootstrap-accessibility.js');
-     // $javascript['misc/bootstrap-accessibility.js']['weight'] = 1;
-      $javascript['misc/jquery.js']['data'] = drupal_get_path('module', 'accessible_slider') . '/js/jquery.1.10-min.js';
+	} else {
+
+  		$javascript['misc/bootstrap.min.js'] = drupal_js_defaults(drupal_get_path('module', 'accessible_slider') . '/js/bootstrap.min.js');
+  		$javascript['misc/bootstrap.min.js']['weight'] = 0;
+  		$javascript['misc/bootstrap-accessibility.js'] = drupal_js_defaults(drupal_get_path('module', 'accessible_slider') . '/js/bootstrap-accessibility.js');
+  		$javascript['misc/bootstrap-accessibility.js']['weight'] = 1;
+
+		  $javascript['misc/jquery.js']['data'] = drupal_get_path('module', 'accessible_slider') . '/js/jquery.1.10-min.js';
 
       drupal_add_css(drupal_get_path('module', 'accessible_slider') . '/css/bootstrap.min.css', array('group' => CSS_DEFAULT));
       drupal_add_css(drupal_get_path('module', 'accessible_slider') . '/css/bootstrap-accessibility.css', array('group' => CSS_DEFAULT));

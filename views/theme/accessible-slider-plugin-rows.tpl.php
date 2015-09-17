@@ -15,7 +15,7 @@
     <?php endif ?>
 
     <?php if (!empty($link)): ?>
-      <h2><a href="<?php print $link ?>">Page Link</a></h2>
+      <h2><a href="<?php print $link; ?>"><?php print $link_text;?></a></h2>
     <?php endif ?>
   </div>
 <?php endif ?>
