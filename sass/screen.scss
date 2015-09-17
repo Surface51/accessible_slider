@@ -118,7 +118,20 @@ a.carousel-control.right {
     width:10px;
     margin: 0 5px;
   }
+  li:focus {
+    outline: 0 !important;
+    //background-color: rgba(0, 0, 0, 0.5) !important;
+  }
+  &:focus {
+    outline: 0 !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+  }
 }
+.carousel-tablist-highlight.focus {
+  outline: none !important;
+  padding: .5em;
+}
+
 .carousel-inner img {
   max-width:100%;
   width: 100%;

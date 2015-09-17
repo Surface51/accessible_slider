@@ -445,13 +445,13 @@
             }
             // end for
 
-            //          console.log("[HIGHLIGHT]  Top: " +  highlightBox.top + " Left: " +  highlightBox.left + " Height: " +  highlightBox.height + " Width: " +  highlightBox.width)
+                      console.log("[HIGHLIGHT]  Top: " +  highlightBox + " Left: " +  highlightBox.left + " Height: " +  highlightBox.height + " Width: " +  highlightBox.width)
 
-            $tablistHighlight.style.top = (highlightBox.top - 2) + 'px'
-            $tablistHighlight.style.left = (highlightBox.left - 2) + 'px'
+            $tablistHighlight.style.top = (highlightBox.top - 7) + 'px'
+            $tablistHighlight.style.left = (highlightBox.left - 8) + 'px'
             $tablistHighlight.style.height = (highlightBox.height + 7) + 'px'
             $tablistHighlight.style.width = (highlightBox.width + 8) + 'px'
-
+            //console.log($tablistHighlight);
         }
         // end function
 
