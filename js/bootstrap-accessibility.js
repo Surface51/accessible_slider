@@ -19,6 +19,8 @@
 
 
 (function($) {
+    console.log("test");
+
     "use strict";
 
     // GENERAL UTILITY FUNCTIONS
@@ -175,6 +177,7 @@
         $lis.attr('role', 'presentation')
         $tabs.attr('role', 'tab')
     }
+    
 
     $tabs.each(function( index ) {
         var tabpanel = $($(this).attr('href'))
@@ -218,11 +221,12 @@
             return
             $items = $ul.find('[role=tab]:visible')
         index = $items.index($items.filter(':focus'))
+        /*
         if (k == 38 || k == 37) 
             index-- // up & left
         if (k == 39 || k == 40) 
             index++ // down & right
-
+        */
 
         if (index < 0) 
             index = $items.length - 1
@@ -376,10 +380,11 @@
             if (k == 32) $this.click()
         $items = $tablist.find('[role=tab]')
         index = $items.index($items.filter(':focus'))
+        /*
         if (k == 38 || k == 37) 
             index-- // up & left
         if (k == 39 || k == 40) 
-            index++ // down & right
+            index++ // down & right*/
         if (index < 0) 
             index = $items.length - 1
         if (index == $items.length) 
@@ -395,6 +400,7 @@
     // ===============================
 
     $('.carousel').each(function (index) {
+
 
         // This function positions a highlight box around the tabs in the tablist to use in focus styling
 
@@ -466,6 +472,7 @@
         , i
         , id_title = 'id_title'
         , id_desc = 'id_desc'
+
 
         $tablist.attr('role', 'tablist')
 
@@ -687,6 +694,7 @@
             return
 
             index = $tabs.index($tabs.filter('.active'))
+            /*
         if (k == 37 || k == 38) {
             //  Up
             index--
@@ -697,7 +705,7 @@
             // Down
             index++
             selectTab(index);
-        }
+        }*/
 
         e.preventDefault()
         e.stopPropagation()
