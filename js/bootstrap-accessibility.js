@@ -445,7 +445,7 @@
             }
             // end for
 
-                      console.log("[HIGHLIGHT]  Top: " +  highlightBox + " Left: " +  highlightBox.left + " Height: " +  highlightBox.height + " Width: " +  highlightBox.width)
+                      //console.log("[HIGHLIGHT]  Top: " +  highlightBox + " Left: " +  highlightBox.left + " Height: " +  highlightBox.height + " Width: " +  highlightBox.width)
 
             $tablistHighlight.style.top = (highlightBox.top - 7) + 'px'
             $tablistHighlight.style.left = (highlightBox.left - 8) + 'px'
