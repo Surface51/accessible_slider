@@ -50,28 +50,28 @@ class ViewsBootstrapCarouselPluginRows extends views_plugin_row {
 
     $form['title'] = array(
       '#type' => 'select',
-      '#title' => t('Title'),
+      '#title' => t('Slide Title'),
       '#options' => $fields,
       '#default_value' => $this->options['title'],
     );
 
     $form['description'] = array(
       '#type' => 'select',
-      '#title' => t('Description'),
+      '#title' => t('Slide Caption'),
       '#options' => $fields,
       '#default_value' => $this->options['description'],
     );
 
     $form['link'] = array(
       '#type' => 'select',
-      '#title' => t('Link'),
+      '#title' => t('Link URL'),
       '#options' => $fields,
       '#default_value' => $this->options['link'],
     );
 
     $form['link_text'] = array(
       '#type' => 'select',
-      '#title' => t('Link Text'),
+      '#title' => t('Link Title'),
       '#options' => $fields,
       '#default_value' => $this->options['link_text'],
     );
