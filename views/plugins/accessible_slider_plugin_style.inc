@@ -17,6 +17,7 @@ class ViewsBootstrapCarouselPluginStyle extends views_plugin_style {
     $options['navigation'] = array('default' => TRUE);
     $options['indicators'] = array('default' => TRUE);
     $options['pause'] = array('default' => FALSE);
+    $options['transition'] = array('default' => 'carousel-linear');
     return $options;
   }
 
@@ -56,7 +57,9 @@ class ViewsBootstrapCarouselPluginStyle extends views_plugin_style {
     $form['transition_options'] = array(
       '#type' => 'value',
       '#value' => array('carousel-linear' => t('Linear'),
-                        'carousel-fade' => t('Fade'))
+                        'carousel-fade' => t('Fade'),
+                        'carousel-no-transition' => t('None')
+                        )
     );
 
     $form['transition'] = array(
