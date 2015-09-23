@@ -4,6 +4,7 @@ core = 7.x
 version = "7.x-0.2-alpha"
 package = "Accessible Slider"
 dependencies[] = views
+dependencies[] = jquery_update
 
 files[] = views/plugins/accessible_slider_plugin_style.inc
 files[] = views/plugins/accessible_slider_plugin_rows.inc

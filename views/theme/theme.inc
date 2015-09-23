@@ -19,8 +19,6 @@ function template_preprocess_accessible_slider_plugin_style(&$vars) {
     ),
   ), 'setting');
 
-  drupal_add_js(drupal_get_path('module', 'accessible_slider') . '/js/views-bootstrap-carousel.js');
-  
 
    switch ($vars['options']['transition']) {
       case "carousel-linear":
