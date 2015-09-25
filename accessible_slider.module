@@ -11,21 +11,46 @@ function accessible_slider_views_api() {
 }
 
 /**
+ * Implements hook_libraries_info().
+ *
+ * For defining external libraries.
+ */
+function accessible_slider_libraries_info() {
+  $libraries['bootstrap'] = array(
+    'name' => 'bootstrap',
+    'vendor url' => 'http://getbootstrap.com',
+    'download url' => 'http://getbootstrap.com',
+    'version callback' => 'accessible_slider_version_callback',
+    'files' => array(
+      'js' => array(
+        'js/bootstrap.min.js',
+      ),
+       'css' => array(
+        'css/bootstrap.min.css',
+      ),
+    ),
+  );
+  return $libraries;
+}
+
+
+function accessible_slider_version_callback () {
+  //don't mess with version checking 
+  return TRUE;
+}
+
+/**
  * Implements hook_js_alter().
  */
 function accessible_slider_js_alter(&$javascript) {
 	if (path_is_admin(current_path())) {
 
 	} else {
-
-      $javascript['misc/bootstrap.min.js'] = drupal_js_defaults(drupal_get_path('module', 'accessible_slider') . '/js/bootstrap.min.js');
-      $javascript['misc/bootstrap.min.js']['weight'] = 1;
-
+      libraries_load('bootstrap');
       $javascript['misc/js/accessible_slider.js'] = drupal_js_defaults(drupal_get_path('module', 'accessible_slider') . '/js/accessible_slider.js');
       $javascript['misc/js/accessible_slider.js']['weight'] = 2;
 
 
-      drupal_add_css(drupal_get_path('module', 'accessible_slider') . '/css/bootstrap.min.css', array('group' => CSS_DEFAULT));
       drupal_add_css(drupal_get_path('module', 'accessible_slider') . '/css/bootstrap-accessibility.css', array('group' => CSS_DEFAULT));
       drupal_add_css(drupal_get_path('module', 'accessible_slider') . '/css/carousel.css', array('group' => CSS_DEFAULT));
       drupal_add_css(drupal_get_path('module', 'accessible_slider') . '/css/screen.css', array('group' => CSS_DEFAULT));
