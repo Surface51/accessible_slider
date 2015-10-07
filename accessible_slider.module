@@ -18,14 +18,12 @@ function accessible_slider_js_alter(&$javascript) {
 
 	} else {
 
-		  $javascript['misc/jquery.js'] = drupal_js_defaults(drupal_get_path('module', 'accessible_slider') . '/js/jquery.1.10-min.js');
-      $javascript['misc/jquery.js']['weight'] = 0;
-
       $javascript['misc/bootstrap.min.js'] = drupal_js_defaults(drupal_get_path('module', 'accessible_slider') . '/js/bootstrap.min.js');
       $javascript['misc/bootstrap.min.js']['weight'] = 1;
 
       $javascript['misc/js/accessible_slider.js'] = drupal_js_defaults(drupal_get_path('module', 'accessible_slider') . '/js/accessible_slider.js');
       $javascript['misc/js/accessible_slider.js']['weight'] = 2;
+
 
       drupal_add_css(drupal_get_path('module', 'accessible_slider') . '/css/bootstrap.min.css', array('group' => CSS_DEFAULT));
       drupal_add_css(drupal_get_path('module', 'accessible_slider') . '/css/bootstrap-accessibility.css', array('group' => CSS_DEFAULT));

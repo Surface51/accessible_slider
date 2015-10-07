@@ -19,6 +19,7 @@ function template_preprocess_accessible_slider_plugin_style(&$vars) {
     ),
   ), 'setting');
 
+
   drupal_add_js(drupal_get_path('module', 'accessible_slider') . '/js/views-bootstrap-carousel.js');
 
   switch ($vars['options']['transition']) {
@@ -31,6 +32,7 @@ function template_preprocess_accessible_slider_plugin_style(&$vars) {
     case "carousel-no-transition":
         $additional_classes = "";
         break;
+
   }
 
   $vars['classes_array'][] = 'carousel '.$additional_classes;
