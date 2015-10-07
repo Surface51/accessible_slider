@@ -499,7 +499,6 @@
         }
 
         if (typeof $this.attr('role') !== 'string') {
-            $this.attr('role', 'complementary');
             $this.attr('aria-labelledby', id_title);
             $this.attr('aria-describedby', id_desc);
             $this.prepend('<p  id="' + id_desc + '" class="sr-only">A carousel is a rotating set of images, rotation stops on keyboard focus on carousel tab controls or hovering the mouse pointer over images.  Use the tabs or the previous and next buttons to change the displayed slide.</p>')
@@ -544,6 +543,8 @@
         // create div for focus styling of tablist
         $tablistHighlight = document.createElement('div')
         $tablistHighlight.className = 'carousel-tablist-highlight'
+        $tablistHighlight.setAttribute('role','complementary')
+        $tablistHighlight.setAttribute('aria-label','tablist highlight')
         document.body.appendChild($tablistHighlight)
 
         // create button for screen reader users to stop rotation of carousel
@@ -553,6 +554,8 @@
         $pauseCarousel.className = "carousel-pause-button"
         $pauseCarousel.innerHTML = "Pause Carousel"
         $pauseCarousel.setAttribute('title', "Pause/Play carousel button can be used by screen reader users to stop carousel animations")
+        $pauseCarousel.setAttribute('aria-label', "slider pause/play button")
+        $pauseCarousel.setAttribute('role', "complementary")
         $(document.body).prepend($pauseCarousel)
         $($pauseCarousel).click(function() {
             if ($is_paused) {
@@ -713,4 +716,5 @@
     $(document).on('keydown.carousel.data-api', 'li[role=tab]', $.fn.carousel.Constructor.prototype.keydown)
 
 })(jQuery);
+
 
