@@ -56,3 +56,10 @@ function accessible_slider_js_alter(&$javascript) {
       drupal_add_css(drupal_get_path('module', 'accessible_slider') . '/css/screen.css', array('group' => CSS_DEFAULT));
   }
 }
+
+function accessible_slider_init(){
+     $my_path = array(
+         'basePath' => drupal_get_path('module', 'accessible_slider')
+      );
+      drupal_add_js(array('accessibleSlider' => $my_path), 'setting');
+}

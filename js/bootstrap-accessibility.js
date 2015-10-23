@@ -19,7 +19,7 @@
 
 
 (function($) {
-    console.log("test");
+//    console.log("test");
 
     "use strict";
 
@@ -470,8 +470,8 @@
         , height
         , width
         , i
-        , id_title = 'id_title'
-        , id_desc = 'id_desc'
+        , id_title = 'slider-' + index
+        , id_desc = 'slider-desc-' + index
 
 
         $tablist.attr('role', 'tablist')
@@ -542,9 +542,9 @@
 
         // create div for focus styling of tablist
         $tablistHighlight = document.createElement('div')
-        $tablistHighlight.className = 'carousel-tablist-highlight'
+        $tablistHighlight.className = 'carousel-tablist-highlight
         $tablistHighlight.setAttribute('role','complementary')
-        $tablistHighlight.setAttribute('aria-label','tablist highlight')
+        $tablistHighlight.setAttribute('aria-label','tablist highlight-slider-' + index)
         document.body.appendChild($tablistHighlight)
 
         // create button for screen reader users to stop rotation of carousel
@@ -554,9 +554,8 @@
         $pauseCarousel.className = "carousel-pause-button"
         $pauseCarousel.innerHTML = "Pause Carousel"
         $pauseCarousel.setAttribute('title', "Pause/Play carousel button can be used by screen reader users to stop carousel animations")
-        $pauseCarousel.setAttribute('aria-label', "slider pause/play button")
-        $pauseCarousel.setAttribute('role', "complementary")
-        $(document.body).prepend($pauseCarousel)
+        $(document.body).prepend("<div id='add-button-" + index + "' aria-label='pause play button for slider " + index + "' role='complementary'></div>")
+        $("#add-button").prepend($pauseCarousel)
         $($pauseCarousel).click(function() {
             if ($is_paused) {
                 $pauseCarousel.innerHTML = "Pause Carousel"
@@ -716,5 +715,4 @@
     $(document).on('keydown.carousel.data-api', 'li[role=tab]', $.fn.carousel.Constructor.prototype.keydown)
 
 })(jQuery);
-
 
